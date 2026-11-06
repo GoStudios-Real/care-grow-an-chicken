@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Care & Grow An Chicken - GoStudios</title>
+<meta name="description" content="Care & Grow An Chicken - A 3D virtual pet game. Raise, feed, play, and grow your own chicken!" />
+<style>
+  :root { --bg1:#6ec6ff; --bg2:#b8e994; --panel:rgba(255,255,255,0.85); --accent:#ff7a3d; --accent2:#ff3d71; --text:#1a2a3a; --muted:#5a6a7a; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; font-family:"Segoe UI",system-ui,sans-serif; color:var(--text); overflow-x:hidden; }
+  body { background:linear-gradient(180deg,var(--bg1),var(--bg2)); }
+
+  .hero { text-align:center; padding:40px 20px 20px; }
+  .hero h1 { font-size:clamp(28px,5vw,48px); font-weight:800; text-shadow:0 3px 0 rgba(255,255,255,0.6); margin-bottom:8px; }
+  .hero p { font-size:16px; color:var(--muted); max-width:600px; margin:0 auto 20px; }
+  .hero .badges { display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:20px; }
+  .badge { background:var(--panel); padding:6px 14px; border-radius:20px; font-size:13px; font-weight:600; box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+
+  .play-section { max-width:900px; margin:0 auto; padding:0 20px; }
+  .play-frame { width:100%; height:600px; border:none; border-radius:16px; box-shadow:0 12px 40px rgba(0,0,0,0.2); background:#fff; }
+  .play-btn { display:inline-block; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; padding:14px 32px; border-radius:16px; font-size:18px; font-weight:700; text-decoration:none; margin:16px 0; box-shadow:0 6px 20px rgba(255,122,61,0.4); transition:transform .2s; }
+  .play-btn:hover { transform:scale(1.05); }
+
+  .features { max-width:900px; margin:40px auto; padding:0 20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:16px; }
+  .feature { background:var(--panel); border-radius:16px; padding:20px; box-shadow:0 4px 16px rgba(0,0,0,0.08); }
+  .feature .ico { font-size:32px; margin-bottom:8px; }
+  .feature h3 { font-size:16px; margin-bottom:4px; }
+  .feature p { font-size:13px; color:var(--muted); }
+
+  .downloads { max-width:900px; margin:40px auto; padding:0 20px; text-align:center; }
+  .downloads h2 { font-size:24px; margin-bottom:16px; }
+  .dl-buttons { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+  .dl-btn { background:var(--panel); padding:12px 24px; border-radius:14px; text-decoration:none; color:var(--text); font-weight:700; font-size:14px; box-shadow:0 4px 16px rgba(0,0,0,0.1); transition:transform .2s; display:flex; align-items:center; gap:8px; }
+  .dl-btn:hover { transform:scale(1.05); }
+
+  .footer { text-align:center; padding:40px 20px; color:var(--muted); font-size:13px; }
+  .footer a { color:var(--accent); text-decoration:none; }
+
+  @media (max-width:600px) {
+    .play-frame { height:400px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>🐔 Care & Grow An Chicken</h1>
+  <p>Raise, care for, and grow your own 3D chicken! Feed, play, rest, clean, and watch it evolve from egg to adult. By GoStudios.</p>
+  <div class="badges">
+    <span class="badge">🎮 Free to Play</span>
+    <span class="badge">🌐 Play in Browser</span>
+    <span class="badge">📱 Android</span>
+    <span class="badge">💻 Windows</span>
+    <span class="badge">⭐ 4 Evolution Stages</span>
+  </div>
+  <a href="#play" class="play-btn">▶ Play Now in Browser</a>
+</div>
+
+<div class="play-section" id="play">
+  <iframe class="play-frame" src="game.html" title="Care & Grow An Chicken"></iframe>
+</div>
+
+<div class="features">
+  <div class="feature"><div class="ico">🐣</div><h3>4 Evolution Stages</h3><p>Watch your chicken grow from Egg to Chick to Chicken to Adult!</p></div>
+  <div class="feature"><div class="ico">🍖</div><h3>Care System</h3><p>Feed, play, rest, clean, and pet your chicken to keep it happy and healthy.</p></div>
+  <div class="feature"><div class="ico">🎮</div><h3>Mini-Games</h3><p>Catch falling seeds or play memory match to earn coins and XP!</p></div>
+  <div class="feature"><div class="ico">🛒</div><h3>Shop & Accessories</h3><p>Buy hats, accessories, toys, and themes with your earned coins.</p></div>
+  <div class="feature"><div class="ico">🏆</div><h3>Achievements</h3><p>Unlock 10 achievements as you progress through the game.</p></div>
+  <div class="feature"><div class="ico">🌧️</div><h3>Weather & Day/Night</h3><p>Experience dynamic weather and day/night cycles that affect gameplay.</p></div>
+</div>
+
+<div class="downloads">
+  <h2>Download</h2>
+  <div class="dl-buttons">
+    <a href="Care%20%26%20Grow%20An%20Chicken.exe" class="dl-btn" download>💻 Windows (.exe)</a>
+    <a href="Care%20%26%20Grow%20An%20Chicken.apk" class="dl-btn" download>📱 Android (.apk)</a>
+  </div>
+  <p style="margin-top:12px;font-size:12px;color:var(--muted);">The web version above works in any modern browser — no download needed!</p>
+</div>
+
+<div class="footer">
+  <p>Made with ❤️ by <a href="https://github.com/GoStudios-Real">GoStudios</a></p>
+  <p style="margin-top:8px;">&copy; 2026 GoStudios. All rights reserved.</p>
+</div>
+
+</body>
+</html>
