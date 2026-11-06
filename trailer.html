@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Care & Grow An Chicken - Trailer</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; overflow:hidden; background:#000; font-family:"Segoe UI",system-ui,sans-serif; }
+  #trailer { width:100%; height:100%; position:relative; overflow:hidden; }
+  canvas { position:absolute; inset:0; }
+
+  .scene { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; opacity:0; transition:opacity 1s; pointer-events:none; }
+  .scene.active { opacity:1; pointer-events:auto; }
+
+  .title-big { font-size:clamp(36px,8vw,80px); font-weight:900; color:#fff; text-shadow:0 4px 20px rgba(0,0,0,0.5), 0 0 40px rgba(255,200,100,0.3); text-align:center; letter-spacing:-1px; }
+  .subtitle { font-size:clamp(16px,3vw,28px); color:rgba(255,255,255,0.9); margin-top:12px; text-shadow:0 2px 8px rgba(0,0,0,0.4); text-align:center; }
+  .tagline { font-size:clamp(14px,2.5vw,22px); color:#ffd93d; margin-top:20px; font-weight:600; text-shadow:0 2px 8px rgba(0,0,0,0.4); text-align:center; }
+
+  .feature-text { font-size:clamp(20px,4vw,36px); font-weight:700; color:#fff; text-align:center; text-shadow:0 3px 12px rgba(0,0,0,0.5); opacity:0; transform:translateY(30px); transition:all 0.8s; }
+  .feature-text.show { opacity:1; transform:translateY(0); }
+  .feature-icon { font-size:clamp(48px,10vw,96px); margin-bottom:16px; opacity:0; transform:scale(0.5); transition:all 0.8s; }
+  .feature-icon.show { opacity:1; transform:scale(1); }
+
+  .cta-btn { display:inline-block; background:linear-gradient(135deg,#ff7a3d,#ff3d71); color:#fff; padding:16px 40px; border-radius:20px; font-size:20px; font-weight:700; text-decoration:none; margin-top:30px; box-shadow:0 8px 30px rgba(255,122,61,0.5); transition:transform .3s; animation:pulse 2s infinite; }
+  .cta-btn:hover { transform:scale(1.1); }
+  @keyframes pulse { 0%,100%{box-shadow:0 8px 30px rgba(255,122,61,0.5);} 50%{box-shadow:0 8px 50px rgba(255,122,61,0.8);} }
+
+  .progress-bar { position:absolute; bottom:0; left:0; height:4px; background:linear-gradient(90deg,#ff7a3d,#ff3d71); transition:width 0.5s; z-index:10; }
+  .skip-btn { position:absolute; top:20px; right:20px; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.3); color:#fff; padding:8px 16px; border-radius:8px; cursor:pointer; font-size:14px; z-index:10; backdrop-filter:blur(4px); }
+  .skip-btn:hover { background:rgba(255,255,255,0.3); }
+
+  .logo { position:absolute; bottom:20px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.6); font-size:14px; font-weight:600; z-index:10; }
+
+  @keyframes fadeInUp { from{opacity:0;transform:translateY(40px);} to{opacity:1;transform:translateY(0);} }
+  @keyframes scaleIn { from{opacity:0;transform:scale(0.3);} to{opacity:1;transform:scale(1);} }
+  @keyframes glow { 0%,100%{text-shadow:0 0 20px rgba(255,215,0,0.3);} 50%{text-shadow:0 0 40px rgba(255,215,0,0.8);} }
+</style>
+</head>
+<body>
+<div id="trailer">
+  <canvas id="bg"></canvas>
+
+  <!-- Scene 1: Title -->
+  <div class="scene" id="s1">
+    <div class="title-big" style="animation:scaleIn 1s ease-out;">🐔 Care & Grow</div>
+    <div class="title-big" style="font-size:0.6em; animation:scaleIn 1s 0.3s ease-out both;">An Chicken</div>
+    <div class="subtitle" style="animation:fadeInUp 1s 0.8s ease-out both;">A 3D Virtual Pet Game</div>
+    <div class="tagline" style="animation:fadeInUp 1s 1.2s ease-out both;">by GoStudios</div>
+  </div>
+
+  <!-- Scene 2: Feature - Evolution -->
+  <div class="scene" id="s2">
+    <div class="feature-icon" id="f2i">🐣</div>
+    <div class="feature-text" id="f2t">Watch your chicken grow...</div>
+    <div class="feature-text" id="f2t2" style="font-size:0.7em; color:#ffd93d; margin-top:8px;">Egg → Chick → Chicken → Adult</div>
+  </div>
+
+  <!-- Scene 3: Feature - Care -->
+  <div class="scene" id="s3">
+    <div class="feature-icon" id="f3i">🍖</div>
+    <div class="feature-text" id="f3t">Feed, Play, Rest, Clean, Pet</div>
+    <div class="feature-text" id="f3t2" style="font-size:0.7em; color:#ffd93d; margin-top:8px;">Keep your chicken happy & healthy!</div>
+  </div>
+
+  <!-- Scene 4: Feature - Mini Games -->
+  <div class="scene" id="s4">
+    <div class="feature-icon" id="f4i">🎮</div>
+    <div class="feature-text" id="f4t">Two Fun Mini-Games!</div>
+    <div class="feature-text" id="f4t2" style="font-size:0.7em; color:#ffd93d; margin-top:8px;">Catch Seeds & Memory Match</div>
+  </div>
+
+  <!-- Scene 5: Feature - Shop -->
+  <div class="scene" id="s5">
+    <div class="feature-icon" id="f5i">🛒</div>
+    <div class="feature-text" id="f5t">Shop & Customize!</div>
+    <div class="feature-text" id="f5t2" style="font-size:0.7em; color:#ffd93d; margin-top:8px;">Hats, Accessories, Toys & Themes</div>
+  </div>
+
+  <!-- Scene 6: Feature - Weather -->
+  <div class="scene" id="s6">
+    <div class="feature-icon" id="f6i">🌧️</div>
+    <div class="feature-text" id="f6t">Dynamic Weather & Day/Night</div>
+    <div class="feature-text" id="f6t2" style="font-size:0.7em; color:#ffd93d; margin-top:8px;">A living, breathing world</div>
+  </div>
+
+  <!-- Scene 7: CTA -->
+  <div class="scene" id="s7">
+    <div class="title-big" style="font-size:0.7em;">Ready to raise your chicken?</div>
+    <a href="https://gostudios-real.github.io/care-grow-an-chicken/" class="cta-btn" target="_blank">▶ Play Now — Free!</a>
+    <div class="subtitle" style="margin-top:20px; font-size:14px;">Windows • Android • Web Browser</div>
+  </div>
+
+  <div class="progress-bar" id="progress"></div>
+  <button class="skip-btn" onclick="skipToEnd()">Skip ▸▸</button>
+  <div class="logo">GoStudios © 2026</div>
+</div>
+
+<script>
+// Background particle animation
+const canvas = document.getElementById("bg");
+const ctx = canvas.getContext("2d");
+let particles = [];
+let W, H;
+
+function resize() { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener("resize", resize);
+
+for(let i=0;i<60;i++){
+  particles.push({ x: Math.random()*W, y: Math.random()*H, r: Math.random()*3+1, vx: (Math.random()-0.5)*0.5, vy: (Math.random()-0.5)*0.5, a: Math.random()*0.5+0.2, color: ["#ffd93d","#ff7a3d","#6ec6ff","#b8e994","#fff"][Math.floor(Math.random()*5)] });
+}
+
+function drawBg(){
+  ctx.clearRect(0,0,W,H);
+  // Gradient background
+  const grd = ctx.createLinearGradient(0,0,0,H);
+  grd.addColorStop(0,"#1a2a4a");
+  grd.addColorStop(0.5,"#2d4a6a");
+  grd.addColorStop(1,"#1a3a2a");
+  ctx.fillStyle = grd;
+  ctx.fillRect(0,0,W,H);
+
+  // Particles
+  particles.forEach(p=>{
+    p.x += p.vx; p.y += p.vy;
+    if(p.x<0) p.x=W; if(p.x>W) p.x=0;
+    if(p.y<0) p.y=H; if(p.y>H) p.y=0;
+    ctx.globalAlpha = p.a;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fill();
+  });
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(drawBg);
+}
+drawBg();
+
+// Scene management
+const scenes = ["s1","s2","s3","s4","s5","s6","s7"];
+const durations = [4000, 3500, 3500, 3500, 3500, 3500, 5000];
+let current = 0;
+let timer = null;
+
+function showScene(idx){
+  scenes.forEach((s,i)=>{
+    const el = document.getElementById(s);
+    if(i===idx) el.classList.add("active");
+    else el.classList.remove("active");
+  });
+  // Animate feature icons/texts
+  if(idx>=1 && idx<=5){
+    const n = idx+1;
+    setTimeout(()=>{ document.getElementById("f"+n+"i")?.classList.add("show"); }, 300);
+    setTimeout(()=>{ document.getElementById("f"+n+"t")?.classList.add("show"); }, 600);
+    setTimeout(()=>{ document.getElementById("f"+n+"t2")?.classList.add("show"); }, 900);
+  }
+  // Update progress
+  const progress = ((idx+1)/scenes.length)*100;
+  document.getElementById("progress").style.width = progress+"%";
+}
+
+function nextScene(){
+  current++;
+  if(current >= scenes.length){
+    current = 0; // loop
+    // Reset animations
+    document.querySelectorAll(".feature-icon,.feature-text").forEach(el=>el.classList.remove("show"));
+  }
+  showScene(current);
+  timer = setTimeout(nextScene, durations[current]);
+}
+
+function skipToEnd(){
+  clearTimeout(timer);
+  current = scenes.length-1;
+  showScene(current);
+}
+
+// Start
+showScene(0);
+timer = setTimeout(nextScene, durations[0]);
+</script>
+</body>
+</html>
