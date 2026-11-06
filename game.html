@@ -17,12 +17,10 @@
   html, body { height:100%; overflow:hidden; font-family:"Nunito",system-ui,sans-serif; color:var(--text); }
   body { background:linear-gradient(180deg,var(--bg1),var(--bg2)); position:relative; }
 
-  /* Animated background particles */
   .bg-particles { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
   .bg-particles span { position:absolute; border-radius:50%; opacity:0.3; animation:float 8s infinite ease-in-out; }
   @keyframes float { 0%,100%{transform:translateY(0) scale(1);} 50%{transform:translateY(-30px) scale(1.2);} }
 
-  /* Header */
   header {
     position:relative; z-index:10; padding:10px 16px 6px;
     display:flex; align-items:center; justify-content:space-between;
@@ -40,11 +38,9 @@
   .icon-btn:hover { transform:scale(1.1); background:rgba(255,255,255,0.85); }
   .icon-btn:active { transform:scale(0.9); }
 
-  /* Scene */
-  #scene { flex:1; min-height:0; position:relative; z-index:1; overflow:hidden; border-radius:0; }
+  #scene { flex:1; min-height:0; position:relative; z-index:1; overflow:hidden; }
   #scene canvas { display:block; width:100% !important; height:100% !important; }
 
-  /* Info Bar */
   .info-bar {
     position:relative; z-index:10; display:flex; justify-content:space-around; align-items:center;
     padding:8px 12px; margin:6px 12px 0; border-radius:var(--radius); background:var(--panel);
@@ -54,7 +50,6 @@
   .info-bar span { display:flex; align-items:center; gap:4px; }
   .info-bar .val { color:var(--accent); font-weight:900; font-size:14px; }
 
-  /* Stats */
   .stats { position:relative; z-index:10; padding:6px 12px; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
   .stat {
     background:var(--panel); border-radius:var(--radius); padding:10px 12px; box-shadow:var(--shadow);
@@ -74,7 +69,6 @@
   .energy .bar > div { background:linear-gradient(90deg,#4dabf7,#0984e3,#74c0fc); }
   .clean .bar > div { background:linear-gradient(90deg,#51cf66,#00b894,#69db7c); }
 
-  /* Actions */
   .actions { position:relative; z-index:10; display:grid; grid-template-columns:repeat(5,1fr); gap:8px; padding:6px 12px 8px; }
   button.action {
     border:none; border-radius:var(--radius); padding:10px 4px 8px; font-size:11px; font-weight:800;
@@ -101,13 +95,12 @@
   .bottom-bar button:hover { transform:translateY(-2px); box-shadow:var(--shadow-lg); }
   .bottom-bar button:active { transform:scale(0.95); }
 
-  /* Overlay */
   .overlay { position:fixed; inset:0; background:rgba(10,20,40,0.6); display:none; align-items:center; justify-content:center; z-index:50; backdrop-filter:blur(8px); }
   .overlay.show { display:flex; animation:fadeIn .3s; }
   @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
   .card {
     background:linear-gradient(160deg,rgba(255,255,255,0.95),rgba(240,246,255,0.9));
-    border-radius:24px; padding:28px 24px; width:92%; max-width:440px; text-align:center;
+    border-radius:24px; padding:28px 24px; width:92%; max-width:480px; text-align:center;
     box-shadow:0 24px 80px rgba(0,0,0,0.3); animation:popIn .4s cubic-bezier(.2,.8,.2,1);
     max-height:88vh; overflow-y:auto; border:1px solid rgba(255,255,255,0.6);
   }
@@ -123,7 +116,6 @@
   .card .btn-close { background:rgba(0,0,0,0.06); color:var(--text); margin-top:10px; }
   .card .btn-close:hover { background:rgba(0,0,0,0.1); }
 
-  /* Game Area */
   #gameArea { position:fixed; inset:0; background:rgba(10,20,40,0.7); display:none; z-index:60; backdrop-filter:blur(6px); }
   #gameArea.show { display:block; animation:fadeIn .3s; }
   #gameArea canvas { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; border-radius:20px; box-shadow:0 24px 80px rgba(0,0,0,0.4); }
@@ -131,7 +123,6 @@
   #gameArea .close:hover { transform:scale(1.1); }
   #gameArea .title { position:absolute; top:18px; left:50%; transform:translateX(-50%); color:#fff; font-weight:800; font-size:18px; text-shadow:0 2px 8px rgba(0,0,0,0.5); z-index:1; }
 
-  /* Toast */
   .toast {
     position:fixed; bottom:100px; left:50%; transform:translateX(-50%) translateY(30px);
     background:linear-gradient(135deg,rgba(20,30,50,0.9),rgba(40,50,70,0.9)); color:#fff;
@@ -143,7 +134,6 @@
   .toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
   .toast .toast-icon { font-size:18px; }
 
-  /* Loading */
   .loading { position:fixed; inset:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); display:flex; align-items:center; justify-content:center; z-index:100; flex-direction:column; gap:16px; transition:opacity .5s; }
   .loading.hidden { opacity:0; pointer-events:none; }
   .loading .spinner { width:56px; height:56px; border:5px solid rgba(255,255,255,0.3); border-top-color:#fff; border-radius:50%; animation:spin 0.8s linear infinite; box-shadow:0 0 20px rgba(255,255,255,0.2); }
@@ -153,7 +143,6 @@
   .loading .progress > div { height:100%; background:#fff; border-radius:4px; animation:loadProgress 2s ease-in-out infinite; }
   @keyframes loadProgress { 0%{width:0%;} 50%{width:70%;} 100%{width:100%;} }
 
-  /* Shop */
   .shop-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:12px 0; }
   .shop-item { background:rgba(0,0,0,0.04); border-radius:14px; padding:10px 6px; text-align:center; transition:all .2s; border:2px solid transparent; }
   .shop-item:hover { transform:translateY(-2px); border-color:rgba(255,107,53,0.3); }
@@ -165,11 +154,10 @@
   .shop-btn { width:100%; padding:7px; border:none; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; font-weight:800; font-size:11px; cursor:pointer; margin-top:6px; transition:all .2s; font-family:inherit; }
   .shop-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,122,61,0.3); }
   .shop-btn:disabled { background:#ccc; cursor:not-allowed; transform:none; box-shadow:none; }
-  .shop-tabs { display:flex; gap:6px; margin-bottom:8px; }
-  .shop-tab { flex:1; padding:8px; border:none; border-radius:10px; background:rgba(0,0,0,0.06); font-weight:700; font-size:12px; cursor:pointer; transition:all .2s; font-family:inherit; }
+  .shop-tabs { display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap; }
+  .shop-tab { flex:1; padding:8px; border:none; border-radius:10px; background:rgba(0,0,0,0.06); font-weight:700; font-size:11px; cursor:pointer; transition:all .2s; font-family:inherit; min-width:60px; }
   .shop-tab.active { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; }
 
-  /* Achievements */
   .ach-list { max-height:320px; overflow-y:auto; margin:10px 0; padding-right:4px; }
   .ach-list::-webkit-scrollbar { width:4px; }
   .ach-list::-webkit-scrollbar-thumb { background:rgba(0,0,0,0.2); border-radius:4px; }
@@ -181,7 +169,32 @@
   .ach-desc { font-size:11px; color:var(--muted); font-weight:600; margin-top:2px; }
   .ach-check { color:#51cf66; font-weight:900; font-size:20px; }
 
-  .coins-display { display:flex; align-items:center; gap:6px; background:linear-gradient(135deg,#ffd93d,#ff9f43); padding:6px 14px; border-radius:12px; font-weight:900; font-size:14px; color:#fff; box-shadow:0 4px 12px rgba(255,159,67,0.3); }
+  .quest-list { max-height:200px; overflow-y:auto; margin:10px 0; }
+  .quest-item { display:flex; align-items:center; gap:10px; padding:8px; border-radius:10px; margin-bottom:6px; background:rgba(0,0,0,0.04); }
+  .quest-item.completed { background:rgba(81,207,102,0.12); }
+  .quest-icon { font-size:20px; }
+  .quest-info { flex:1; text-align:left; }
+  .quest-name { font-weight:700; font-size:12px; }
+  .quest-bar { height:6px; background:rgba(0,0,0,0.08); border-radius:4px; margin-top:4px; overflow:hidden; }
+  .quest-bar > div { height:100%; background:linear-gradient(90deg,#51cf66,#00b894); border-radius:4px; transition:width .3s; }
+  .quest-progress { font-size:10px; color:var(--muted); margin-top:2px; }
+  .quest-check { color:#51cf66; font-weight:900; font-size:16px; }
+
+  .inv-list { display:flex; flex-wrap:wrap; gap:6px; margin:10px 0; justify-content:center; }
+  .inv-item { background:rgba(0,0,0,0.06); border-radius:10px; padding:8px 12px; font-size:12px; font-weight:700; cursor:pointer; transition:all .2s; display:flex; align-items:center; gap:4px; }
+  .inv-item:hover { background:rgba(255,107,53,0.15); transform:scale(1.05); }
+
+  .settings-row { display:flex; align-items:center; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(0,0,0,0.06); }
+  .settings-row label { font-weight:700; font-size:13px; }
+  .settings-row input[type="range"] { width:120px; }
+  .settings-row input[type="checkbox"] { width:20px; height:20px; accent-color:var(--accent); }
+
+  .tab-bar { display:flex; gap:4px; margin-bottom:10px; }
+  .tab-btn { flex:1; padding:8px; border:none; border-radius:10px; background:rgba(0,0,0,0.06); font-weight:700; font-size:11px; cursor:pointer; transition:all .2s; font-family:inherit; }
+  .tab-btn.active { background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#fff; }
+
+  .panel-content { display:none; }
+  .panel-content.active { display:block; }
 
   .bg-particles span:nth-child(1) { width:8px; height:8px; top:10%; left:15%; animation-delay:0s; background:#ffd93d; }
   .bg-particles span:nth-child(2) { width:6px; height:6px; top:30%; left:70%; animation-delay:1s; background:#ff6b9d; }
@@ -210,6 +223,7 @@
     <div class="header-actions">
       <div class="time-badge" id="timeDisplay">12:00 PM</div>
       <button class="icon-btn" id="btnSound" title="Sound">🔊</button>
+      <button class="icon-btn" id="btnSettings" title="Settings">⚙️</button>
     </div>
   </header>
 
@@ -219,7 +233,7 @@
     <span>⭐ Level <span class="val" id="level">1</span></span>
     <span>🪙 <span class="val" id="coins">0</span></span>
     <span>✨ <span class="val" id="xp">0</span>/<span id="xpMax">100</span></span>
-    <span>🏆 <span class="val" id="achCount">0/10</span></span>
+    <span>🏆 <span class="val" id="achCount">0/20</span></span>
   </div>
 
   <div class="stats">
@@ -239,6 +253,8 @@
   <div class="bottom-bar">
     <button id="btnShop">🛒 Shop</button>
     <button id="btnAch">🏆 Achievements</button>
+    <button id="btnQuests">📋 Quests</button>
+    <button id="btnInv">🎒 Inventory</button>
   </div>
 
   <!-- Name Overlay -->
@@ -280,9 +296,54 @@
   <div class="overlay" id="achOverlay">
     <div class="card">
       <h2>🏆 Achievements</h2>
-      <p><span id="achCount2">0/10</span> unlocked</p>
+      <p><span id="achCount2">0/20</span> unlocked</p>
       <div class="ach-list" id="achList"></div>
       <button class="btn-close" onclick="document.getElementById('achOverlay').classList.remove('show')">Close</button>
+    </div>
+  </div>
+
+  <!-- Quests Overlay -->
+  <div class="overlay" id="questOverlay">
+    <div class="card">
+      <h2>📋 Quests</h2>
+      <p>Complete quests for rewards!</p>
+      <div class="quest-list" id="questList"></div>
+      <button class="btn-close" onclick="document.getElementById('questOverlay').classList.remove('show')">Close</button>
+    </div>
+  </div>
+
+  <!-- Inventory Overlay -->
+  <div class="overlay" id="invOverlay">
+    <div class="card">
+      <h2>🎒 Inventory</h2>
+      <p>Click an item to equip it!</p>
+      <div class="inv-list" id="invList"></div>
+      <button class="btn-close" onclick="document.getElementById('invOverlay').classList.remove('show')">Close</button>
+    </div>
+  </div>
+
+  <!-- Settings Overlay -->
+  <div class="overlay" id="settingsOverlay">
+    <div class="card">
+      <h2>⚙️ Settings</h2>
+      <div class="settings-row">
+        <label>🔊 Sound Effects</label>
+        <input type="checkbox" id="soundToggle" checked />
+      </div>
+      <div class="settings-row">
+        <label>🎵 Music</label>
+        <input type="checkbox" id="musicToggle" checked />
+      </div>
+      <div class="settings-row">
+        <label>🎵 Music Volume</label>
+        <input type="range" id="musicVol" min="0" max="1" step="0.1" value="0.3" />
+      </div>
+      <div class="settings-row">
+        <label>🔊 SFX Volume</label>
+        <input type="range" id="sfxVol" min="0" max="1" step="0.1" value="0.5" />
+      </div>
+      <button class="btn-primary" onclick="updateSettings(); document.getElementById('settingsOverlay').classList.remove('show')">Save</button>
+      <button class="btn-close" onclick="document.getElementById('settingsOverlay').classList.remove('show')">Close</button>
     </div>
   </div>
 
@@ -298,65 +359,74 @@
 
 </script>
 <script>
-// Care & Grow An Chicken - 3D (Update 2.0)
-const STAGES = ["Egg","Chick","Chicken","Adult"];
-const SAVE_KEY = "caregrowchicken3d_save_v3";
+// Care & Grow An Chicken - 3D (Mega Update 3.0)
+// 555555555555555555555555 times better!
 
+const STAGES = ["Egg","Chick","Chicken","Adult"];
+const SAVE_KEY = "caregrowchicken3d_save_v4";
+
+// ---------- Achievements ----------
 const ACHIEVEMENTS = [
   { id:"first_feed", name:"First Meal", desc:"Feed your chicken for the first time", icon:"🍖", check: s => s.feedCount>=1 },
   { id:"level5", name:"Growing Up", desc:"Reach level 5", icon:"⭐", check: s => s.level>=5 },
+  { id:"level10", name:"Veteran", desc:"Reach level 10", icon:"🌟", check: s => s.level>=10 },
+  { id:"level20", name:"Master", desc:"Reach level 20", icon:"💫", check: s => s.level>=20 },
   { id:"evolve1", name:"Hatched!", desc:"Evolve to Chick stage", icon:"🐣", check: s => s.stage>=1 },
   { id:"evolve2", name:"Fully Grown", desc:"Evolve to Chicken stage", icon:"🐔", check: s => s.stage>=2 },
   { id:"evolve3", name:"Majestic", desc:"Evolve to Adult stage", icon:"👑", check: s => s.stage>=3 },
   { id:"coins100", name:"Coin Collector", desc:"Earn 100 coins", icon:"🪙", check: s => s.coins>=100 },
+  { id:"coins500", name:"Rich", desc:"Earn 500 coins", icon:"💰", check: s => s.coins>=500 },
   { id:"play10", name:"Playful", desc:"Play 10 mini-games", icon:"🎮", check: s => s.playCount>=10 },
+  { id:"play50", name:"Gamer", desc:"Play 50 mini-games", icon:"🕹️", check: s => s.playCount>=50 },
   { id:"clean_master", name:"Sparkly Clean", desc:"Clean your chicken 20 times", icon:"🧼", check: s => s.cleanCount>=20 },
-  { id:"night_owl", name:"Night Owl", desc:"Care for your chicken at night", icon:"🌙", check: s => s.nightCare>=5 },
+  { id:"pet_lover", name:"Pet Lover", desc:"Pet your chicken 50 times", icon:"❤️", check: s => s.petCount>=50 },
+  { id:"night_owl", name:"Night Owl", desc:"Care for your chicken at night 5 times", icon:"🌙", check: s => s.nightCare>=5 },
   { id:"rainy_day", name:"Rainy Day", desc:"Experience rain with your chicken", icon:"🌧️", check: s => s.rainSeen>=1 },
+  { id:"shopaholic", name:"Shopaholic", desc:"Buy 5 items from the shop", icon:"🛒", check: s => s.shopBuys>=5 },
+  { id:"fashionista", name:"Fashionista", desc:"Equip a hat and accessory", icon:"👗", check: s => s.equippedHat && s.equippedAcc },
+  { id:"survivor", name:"Survivor", desc:"Keep all stats above 50 for 5 minutes", icon:"💪", check: s => s.survivalTime>=300 },
+  { id:"early_bird", name:"Early Bird", desc:"Play during daytime", icon:"🌅", check: s => s.dayCare>=5 },
+  { id:"champion", name:"Champion", desc:"Score 100+ in a mini-game", icon:"🏆", check: s => s.highScore>=100 },
 ];
 
 const SHOP_ITEMS = [
-  { id:"hat_cowboy", name:"Cowboy Hat", icon:"🤠", price:50, type:"hat" },
-  { id:"hat_party", name:"Party Hat", icon:"🎉", price:30, type:"hat" },
-  { id:"hat_crown", name:"Royal Crown", icon:"👑", price:150, type:"hat", unlockLevel:10 },
-  { id:"food_premium", name:"Premium Feed", icon:"🥗", price:20, type:"food", boost:1.5 },
-  { id:"toy_ball", name:"Ball Toy", icon:"⚽", price:40, type:"toy" },
-  { id:"toy_kite", name:"Kite", icon:"🪁", price:60, type:"toy" },
-  { id:"acc_bow", name:"Bow Tie", icon:"🎀", price:35, type:"acc" },
-  { id:"acc_scarf", name:"Scarf", icon:"🧣", price:45, type:"acc" },
-  { id:"bg_garden", name:"Garden Theme", icon:"🌸", price:100, type:"bg" },
-  { id:"bg_night", name:"Night Theme", icon:"🌃", price:120, type:"bg" },
+  { id:"hat_cowboy", name:"Cowboy Hat", icon:"🤠", price:50, type:"hat", desc:"Yeehaw!" },
+  { id:"hat_party", name:"Party Hat", icon:"🎉", price:30, type:"hat", desc:"Let's celebrate!" },
+  { id:"hat_crown", name:"Royal Crown", icon:"👑", price:150, type:"hat", desc:"For royalty", unlockLevel:10 },
+  { id:"hat_wizard", name:"Wizard Hat", icon:"🧙", price:120, type:"hat", desc:"Magical!", unlockLevel:8 },
+  { id:"hat_flower", name:"Flower Crown", icon:"🌸", price:60, type:"hat", desc:"So pretty" },
+  { id:"food_premium", name:"Premium Feed", icon:"🥗", price:20, type:"food", boost:1.5, desc:"Better nutrition" },
+  { id:"food_treat", name:"Special Treat", icon:"🍬", price:15, type:"food", boost:2, desc:"Instant happiness" },
+  { id:"toy_ball", name:"Ball Toy", icon:"⚽", price:40, type:"toy", desc:"Play fetch" },
+  { id:"toy_kite", name:"Kite", icon:"🪁", price:60, type:"toy", desc:"Fly high" },
+  { id:"toy_frisbee", name:"Frisbee", icon:"🥏", price:50, type:"toy", desc:"Catch this!" },
+  { id:"acc_bow", name:"Bow Tie", icon:"🎀", price:35, type:"acc", desc:"Dapper" },
+  { id:"acc_scarf", name:"Scarf", icon:"🧣", price:45, type:"acc", desc:"Cozy" },
+  { id:"acc_glasses", name:"Cool Glasses", icon:"🕶️", price:70, type:"acc", desc:"Too cool", unlockLevel:5 },
+  { id:"bg_garden", name:"Garden Theme", icon:"🌸", price:100, type:"bg", desc:"Flower power" },
+  { id:"bg_night", name:"Night Theme", icon:"🌃", price:120, type:"bg", desc:"City lights" },
+  { id:"bg_beach", name:"Beach Theme", icon:"🏖️", price:130, type:"bg", desc:"Surf's up", unlockLevel:7 },
+  { id:"bg_snow", name:"Snow Theme", icon:"❄️", price:140, type:"bg", desc:"Winter wonderland", unlockLevel:12 },
+];
+
+const QUESTS = [
+  { id:"q_feed3", name:"Feed 3 times", desc:"Feed your chicken 3 times", target:3, stat:"feedCount", reward:20, icon:"🍖" },
+  { id:"q_play2", name:"Play 2 games", desc:"Play 2 mini-games", target:2, stat:"playCount", reward:30, icon:"🎮" },
+  { id:"q_clean5", name:"Clean 5 times", desc:"Clean your chicken 5 times", target:5, stat:"cleanCount", reward:25, icon:"🧼" },
+  { id:"q_pet10", name:"Pet 10 times", desc:"Pet your chicken 10 times", target:10, stat:"petCount", reward:15, icon:"❤️" },
+  { id:"q_level3", name:"Reach level 3", desc:"Get to level 3", target:3, stat:"level", reward:40, icon:"⭐" },
 ];
 
 let state = {
-  name: "Clucky",
-  stage: 0,
-  level: 1,
-  xp: 0,
-  xpMax: 100,
-  coins: 0,
-  hunger: 100,
-  happy: 100,
-  energy: 100,
-  clean: 100,
-  age: 0,
-  lastTick: Date.now(),
-  created: Date.now(),
-  sound: true,
-  // New stats
-  feedCount: 0,
-  playCount: 0,
-  cleanCount: 0,
-  petCount: 0,
-  nightCare: 0,
-  rainSeen: 0,
-  unlockedAch: [],
-  inventory: [],
-  equippedHat: null,
-  equippedAcc: null,
-  theme: "default",
-  highScore: 0,
-  totalPlayTime: 0,
+  name: "Clucky", stage: 0, level: 1, xp: 0, xpMax: 100, coins: 0,
+  hunger: 100, happy: 100, energy: 100, clean: 100, age: 0,
+  lastTick: Date.now(), created: Date.now(), sound: true, music: true,
+  feedCount: 0, playCount: 0, cleanCount: 0, petCount: 0, restCount: 0,
+  nightCare: 0, rainSeen: 0, dayCare: 0, survivalTime: 0, highScore: 0,
+  totalPlayTime: 0, unlockedAch: [], inventory: [], shopBuys: 0,
+  equippedHat: null, equippedAcc: null, theme: "default",
+  quests: [], questProgress: {}, completedQuests: [],
+  lastQuestRefresh: 0, settings: { quality: "high", musicVol: 0.3, sfxVol: 0.5 },
 };
 
 // ---------- Procedural textures ----------
@@ -371,64 +441,52 @@ function makeTexture(drawFn, size=256){
 }
 
 const featherTex = makeTexture((ctx,s)=>{
-  ctx.fillStyle = "#fffaf0";
-  ctx.fillRect(0,0,s,s);
-  for(let i=0;i<800;i++){
+  ctx.fillStyle = "#fffaf0"; ctx.fillRect(0,0,s,s);
+  for(let i=0;i<1200;i++){
     const x=Math.random()*s, y=Math.random()*s;
-    ctx.fillStyle = "rgba(200,190,170,"+(0.3+Math.random()*0.4)+")";
+    ctx.fillStyle = "rgba(200,190,170,"+(0.2+Math.random()*0.4)+")";
     ctx.beginPath();
-    ctx.ellipse(x,y, 2+Math.random()*4, 1+Math.random()*2, Math.random()*Math.PI, 0, Math.PI*2);
+    ctx.ellipse(x,y, 2+Math.random()*5, 1+Math.random()*3, Math.random()*Math.PI, 0, Math.PI*2);
     ctx.fill();
   }
-  for(let i=0;i<2000;i++){
-    ctx.fillStyle = "rgba(120,110,90,"+Math.random()*0.15+")";
+  for(let i=0;i<3000;i++){
+    ctx.fillStyle = "rgba(120,110,90,"+Math.random()*0.12+")";
     ctx.fillRect(Math.random()*s, Math.random()*s, 1,1);
   }
 }, 256);
 
 const grassTex = makeTexture((ctx,s)=>{
-  ctx.fillStyle = "#5fa33a";
-  ctx.fillRect(0,0,s,s);
-  for(let i=0;i<4000;i++){
+  ctx.fillStyle = "#5fa33a"; ctx.fillRect(0,0,s,s);
+  for(let i=0;i<5000;i++){
     const x=Math.random()*s, y=Math.random()*s;
-    ctx.strokeStyle = "rgba(40,90,30,"+(0.4+Math.random()*0.5)+")";
+    ctx.strokeStyle = "rgba(40,90,30,"+(0.3+Math.random()*0.5)+")";
     ctx.lineWidth = 1+Math.random()*1.5;
-    ctx.beginPath();
-    ctx.moveTo(x,y);
-    ctx.lineTo(x+(Math.random()-0.5)*6, y-4-Math.random()*8);
-    ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x,y); ctx.lineTo(x+(Math.random()-0.5)*6, y-4-Math.random()*10); ctx.stroke();
   }
-  for(let i=0;i<40;i++){
-    const g = ctx.createRadialGradient(Math.random()*s,Math.random()*s,0,0,0,20+Math.random()*30);
-    g.addColorStop(0,"rgba(120,180,80,0.35)");
-    g.addColorStop(1,"rgba(0,0,0,0)");
-    ctx.fillStyle = g;
-    ctx.fillRect(0,0,s,s);
+  for(let i=0;i<60;i++){
+    const g = ctx.createRadialGradient(Math.random()*s,Math.random()*s,0,0,0,20+Math.random()*40);
+    g.addColorStop(0,"rgba(120,180,80,0.4)"); g.addColorStop(1,"rgba(0,0,0,0)");
+    ctx.fillStyle = g; ctx.fillRect(0,0,s,s);
   }
 }, 512);
 
 const woodTex = makeTexture((ctx,s)=>{
-  ctx.fillStyle = "#ff9f43";
-  ctx.fillRect(0,0,s,s);
-  for(let i=0;i<60;i++){
-    ctx.strokeStyle = "rgba(180,100,30,"+(0.2+Math.random()*0.3)+")";
-    ctx.lineWidth = 1+Math.random()*3;
+  ctx.fillStyle = "#ff9f43"; ctx.fillRect(0,0,s,s);
+  for(let i=0;i<80;i++){
+    ctx.strokeStyle = "rgba(180,100,30,"+(0.15+Math.random()*0.3)+")";
+    ctx.lineWidth = 1+Math.random()*4;
     const y = Math.random()*s;
-    ctx.beginPath();
-    ctx.moveTo(0,y);
-    for(let x=0;x<s;x+=8){ ctx.lineTo(x, y+Math.sin(x*0.05)*4); }
+    ctx.beginPath(); ctx.moveTo(0,y);
+    for(let x=0;x<s;x+=8){ ctx.lineTo(x, y+Math.sin(x*0.05)*5); }
     ctx.stroke();
   }
 }, 128);
 
 const beakTex = makeTexture((ctx,s)=>{
   const g = ctx.createLinearGradient(0,0,s,0);
-  g.addColorStop(0,"#ff8c00");
-  g.addColorStop(0.5,"#ffb347");
-  g.addColorStop(1,"#ff8c00");
-  ctx.fillStyle = g;
-  ctx.fillRect(0,0,s,s);
-  for(let i=0;i<300;i++){
+  g.addColorStop(0,"#ff8c00"); g.addColorStop(0.5,"#ffb347"); g.addColorStop(1,"#ff8c00");
+  ctx.fillStyle = g; ctx.fillRect(0,0,s,s);
+  for(let i=0;i<400;i++){
     ctx.fillStyle = "rgba(150,80,20,"+Math.random()*0.25+")";
     ctx.fillRect(Math.random()*s, Math.random()*s, 2, 1);
   }
@@ -436,27 +494,34 @@ const beakTex = makeTexture((ctx,s)=>{
 
 const eggTex = makeTexture((ctx,s)=>{
   const g = ctx.createRadialGradient(s*0.35,s*0.3,10,s*0.5,s*0.5,s*0.6);
-  g.addColorStop(0,"#fff");
-  g.addColorStop(0.6,"#f5e6a3");
-  g.addColorStop(1,"#d4a017");
-  ctx.fillStyle = g;
-  ctx.fillRect(0,0,s,s);
-  for(let i=0;i<12;i++){
+  g.addColorStop(0,"#fff"); g.addColorStop(0.6,"#f5e6a3"); g.addColorStop(1,"#d4a017");
+  ctx.fillStyle = g; ctx.fillRect(0,0,s,s);
+  for(let i=0;i<15;i++){
     ctx.fillStyle = "rgba(212,160,23,"+(0.3+Math.random()*0.3)+")";
     ctx.beginPath();
-    ctx.ellipse(Math.random()*s, Math.random()*s, 6+Math.random()*10, 4+Math.random()*6, Math.random()*Math.PI, 0, Math.PI*2);
+    ctx.ellipse(Math.random()*s, Math.random()*s, 6+Math.random()*12, 4+Math.random()*8, Math.random()*Math.PI, 0, Math.PI*2);
     ctx.fill();
   }
 }, 256);
+
+const stoneTex = makeTexture((ctx,s)=>{
+  ctx.fillStyle = "#999"; ctx.fillRect(0,0,s,s);
+  for(let i=0;i<50;i++){
+    ctx.fillStyle = "rgba(80,80,80,"+(0.2+Math.random()*0.3)+")";
+    ctx.beginPath();
+    ctx.arc(Math.random()*s, Math.random()*s, 5+Math.random()*15, 0, Math.PI*2);
+    ctx.fill();
+  }
+}, 128);
 
 // ---------- Three.js setup ----------
 const container = document.getElementById("scene");
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x87ceeb);
-scene.fog = new THREE.Fog(0xcfe8ff, 18, 45);
+scene.fog = new THREE.Fog(0xcfe8ff, 20, 50);
 
 const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
-camera.position.set(0, 4.5, 9);
+camera.position.set(0, 5, 10);
 camera.lookAt(0,1.2,0);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
@@ -464,6 +529,8 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
 container.appendChild(renderer.domElement);
 
 function resize(){
@@ -480,22 +547,22 @@ setTimeout(resize, 200);
 // Lights
 const hemi = new THREE.HemisphereLight(0xffffff, 0x6b8e23, 0.7);
 scene.add(hemi);
-const sun = new THREE.DirectionalLight(0xfff4e0, 1.3);
+const sun = new THREE.DirectionalLight(0xfff4e0, 1.4);
 sun.position.set(6,12,4);
 sun.castShadow = true;
 sun.shadow.mapSize.set(2048,2048);
-sun.shadow.camera.left=-12; sun.shadow.camera.right=12;
-sun.shadow.camera.top=12; sun.shadow.camera.bottom=-12;
+sun.shadow.camera.left=-14; sun.shadow.camera.right=14;
+sun.shadow.camera.top=14; sun.shadow.camera.bottom=-14;
 sun.shadow.bias = -0.0005;
 scene.add(sun);
-const sunSpriteMat = new THREE.SpriteMaterial({ color:0xfff4c0, transparent:true, opacity:0.6 });
+const sunSpriteMat = new THREE.SpriteMaterial({ color:0xfff4c0, transparent:true, opacity:0.7 });
 const sunSprite = new THREE.Sprite(sunSpriteMat);
 sunSprite.position.copy(sun.position).multiplyScalar(0.9);
-sunSprite.scale.set(3,3,1);
+sunSprite.scale.set(4,4,1);
 scene.add(sunSprite);
 
 // Sky dome
-const skyGeo = new THREE.SphereGeometry(40, 32, 16);
+const skyGeo = new THREE.SphereGeometry(50, 32, 16);
 const skyMat = new THREE.ShaderMaterial({
   side: THREE.BackSide,
   uniforms: { topColor:{value:new THREE.Color(0x5aa9ff)}, bottomColor:{value:new THREE.Color(0xcfe8ff)}, sunIntensity:{value:1.0} },
@@ -507,64 +574,94 @@ scene.add(skyMesh);
 
 // Ground
 const groundMat = new THREE.MeshStandardMaterial({ map: grassTex, roughness: 0.95, metalness: 0 });
-const ground = new THREE.Mesh(new THREE.CircleGeometry(14, 64), groundMat);
+const ground = new THREE.Mesh(new THREE.CircleGeometry(16, 64), groundMat);
 ground.rotation.x = -Math.PI/2;
 ground.receiveShadow = true;
 scene.add(ground);
 
+// Path stones
+for(let i=0;i<8;i++){
+  const stone = new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,0.08,8), new THREE.MeshStandardMaterial({map:stoneTex, roughness:0.9}));
+  stone.position.set((i-4)*1.5, 0.04, 2);
+  stone.rotation.y = Math.random()*Math.PI;
+  stone.receiveShadow = true;
+  scene.add(stone);
+}
+
 // Clouds
-function makeCloud(x,y,z){
+function makeCloud(x,y,z,scale=1){
   const g = new THREE.Group();
-  const mat = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:1, transparent:true, opacity:0.9 });
-  for(let i=0;i<5;i++){
-    const b = new THREE.Mesh(new THREE.SphereGeometry(0.8+Math.random()*0.6, 12, 12), mat);
-    b.position.set((Math.random()-0.5)*2.5, (Math.random()-0.5)*0.6, (Math.random()-0.5)*2.5);
-    b.scale.y = 0.6;
+  const mat = new THREE.MeshStandardMaterial({ color:0xffffff, roughness:1, transparent:true, opacity:0.92 });
+  for(let i=0;i<6;i++){
+    const b = new THREE.Mesh(new THREE.SphereGeometry((0.6+Math.random()*0.7)*scale, 12, 12), mat);
+    b.position.set((Math.random()-0.5)*3*scale, (Math.random()-0.5)*0.8*scale, (Math.random()-0.5)*3*scale);
+    b.scale.y = 0.55;
     g.add(b);
   }
   g.position.set(x,y,z);
-  g.scale.set(1.5,1,1.5);
   scene.add(g);
   return g;
 }
 const clouds = [];
-for(let i=0;i<8;i++){
-  clouds.push(makeCloud((Math.random()-0.5)*30, 8+Math.random()*4, (Math.random()-0.5)*30));
+for(let i=0;i<12;i++){
+  clouds.push(makeCloud((Math.random()-0.5)*35, 9+Math.random()*5, (Math.random()-0.5)*35, 1+Math.random()*0.5));
 }
 
 // Trees
-function makeTree(x,z){
+function makeTree(x,z,type=0){
   const g = new THREE.Group();
-  const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.15,0.25,1.6,8), new THREE.MeshStandardMaterial({color:0x6b4226, roughness:0.9}));
-  trunk.position.y = 0.8; trunk.castShadow=true;
+  const trunkMat = new THREE.MeshStandardMaterial({color:0x6b4226, roughness:0.9});
+  const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.12,0.22,1.8,8), trunkMat);
+  trunk.position.y = 0.9; trunk.castShadow=true;
   g.add(trunk);
-  const leaves = new THREE.Mesh(new THREE.SphereGeometry(1.1,12,12), new THREE.MeshStandardMaterial({color:0x2d6a2d, roughness:0.8}));
-  leaves.position.y = 2.2; leaves.castShadow=true;
+  const leafColors = [0x2d6a2d, 0x3a7d3a, 0x4a8f4a, 0x8b4513, 0xd2691e];
+  const lc = leafColors[type % leafColors.length];
+  const leaves = new THREE.Mesh(new THREE.SphereGeometry(1.2,12,12), new THREE.MeshStandardMaterial({color:lc, roughness:0.8}));
+  leaves.position.y = 2.4; leaves.castShadow=true;
   g.add(leaves);
-  const leaves2 = new THREE.Mesh(new THREE.SphereGeometry(0.8,10,10), new THREE.MeshStandardMaterial({color:0x3a7d3a, roughness:0.8}));
-  leaves2.position.set(0.6,2.0,0.3); leaves2.castShadow=true;
+  const leaves2 = new THREE.Mesh(new THREE.SphereGeometry(0.9,10,10), new THREE.MeshStandardMaterial({color:lc, roughness:0.8}));
+  leaves2.position.set(0.7,2.1,0.4); leaves2.castShadow=true;
   g.add(leaves2);
+  const leaves3 = new THREE.Mesh(new THREE.SphereGeometry(0.7,8,8), new THREE.MeshStandardMaterial({color:lc, roughness:0.8}));
+  leaves3.position.set(-0.5,2.0,-0.3); leaves3.castShadow=true;
+  g.add(leaves3);
   g.position.set(x,0,z);
   scene.add(g);
   return g;
 }
 const trees = [];
-for(let i=0;i<10;i++){
+for(let i=0;i<14;i++){
   const a = Math.random()*Math.PI*2;
-  const r = 10 + Math.random()*3;
-  trees.push(makeTree(Math.cos(a)*r, Math.sin(a)*r));
+  const r = 11 + Math.random()*4;
+  trees.push(makeTree(Math.cos(a)*r, Math.sin(a)*r, i%5));
 }
 
-// Flowers
+// Flowers with variety
 const flowers = [];
-for(let i=0;i<40;i++){
+const flowerColors = [0xff6b9d,0xffd93d,0xffffff,0xc77dff,0xff9f43,0xff6b6b,0x4dabf7];
+for(let i=0;i<60;i++){
   const a = Math.random()*Math.PI*2;
-  const r = Math.random()*12;
-  const colors = [0xff6b9d,0xffd93d,0xffffff,0xc77dff,0xff9f43];
-  const f = new THREE.Mesh(new THREE.SphereGeometry(0.12,8,8), new THREE.MeshStandardMaterial({color: colors[Math.floor(Math.random()*colors.length)]}));
-  f.position.set(Math.cos(a)*r, 0.12, Math.sin(a)*r);
+  const r = Math.random()*13;
+  const f = new THREE.Mesh(new THREE.SphereGeometry(0.1,8,8), new THREE.MeshStandardMaterial({color: flowerColors[Math.floor(Math.random()*flowerColors.length)]}));
+  f.position.set(Math.cos(a)*r, 0.08+Math.random()*0.05, Math.sin(a)*r);
   scene.add(f);
   flowers.push(f);
+}
+
+// Butterflies
+const butterflies = [];
+for(let i=0;i<6;i++){
+  const b = new THREE.Group();
+  const wingMat = new THREE.MeshBasicMaterial({color: [0xff69b4,0x87ceeb,0xffd700,0x98fb98][Math.floor(Math.random()*4)], transparent:true, opacity:0.8, side:THREE.DoubleSide});
+  const w1 = new THREE.Mesh(new THREE.PlaneGeometry(0.3,0.2), wingMat);
+  w1.position.x = -0.15;
+  const w2 = new THREE.Mesh(new THREE.PlaneGeometry(0.3,0.2), wingMat);
+  w2.position.x = 0.15;
+  b.add(w1); b.add(w2);
+  b.position.set((Math.random()-0.5)*10, 1+Math.random()*2, (Math.random()-0.5)*10);
+  b.userData = { speed: 0.5+Math.random()*0.5, phase: Math.random()*Math.PI*2, wingSpeed: 8+Math.random()*4 };
+  scene.add(b);
+  butterflies.push(b);
 }
 
 // Rain system
@@ -572,9 +669,9 @@ const rainDrops = [];
 const rainGroup = new THREE.Group();
 scene.add(rainGroup);
 function createRain(){
-  for(let i=0;i<200;i++){
-    const drop = new THREE.Mesh(new THREE.CylinderGeometry(0.01,0.01,0.3,4), new THREE.MeshBasicMaterial({color:0x88ccff, transparent:true, opacity:0.6}));
-    drop.position.set((Math.random()-0.5)*20, Math.random()*15, (Math.random()-0.5)*20);
+  for(let i=0;i<300;i++){
+    const drop = new THREE.Mesh(new THREE.CylinderGeometry(0.008,0.008,0.25,4), new THREE.MeshBasicMaterial({color:0x88ccff, transparent:true, opacity:0.5}));
+    drop.position.set((Math.random()-0.5)*25, Math.random()*20, (Math.random()-0.5)*25);
     rainGroup.add(drop);
     rainDrops.push(drop);
   }
@@ -582,10 +679,24 @@ function createRain(){
 createRain();
 rainGroup.visible = false;
 
-// Chicken
+// Snow system
+const snowFlakes = [];
+const snowGroup = new THREE.Group();
+scene.add(snowGroup);
+function createSnow(){
+  for(let i=0;i<150;i++){
+    const flake = new THREE.Mesh(new THREE.SphereGeometry(0.03,6,6), new THREE.MeshBasicMaterial({color:0xffffff, transparent:true, opacity:0.8}));
+    flake.position.set((Math.random()-0.5)*25, Math.random()*20, (Math.random()-0.5)*25);
+    snowGroup.add(flake);
+    snowFlakes.push(flake);
+  }
+}
+createSnow();
+snowGroup.visible = false;
+
+// ---------- Chicken ----------
 const chicken = new THREE.Group();
 scene.add(chicken);
-
 const matFeather = new THREE.MeshStandardMaterial({ map: featherTex, roughness: 0.7, metalness: 0.05 });
 const matBeak = new THREE.MeshStandardMaterial({ map: beakTex, roughness: 0.4 });
 const matLeg = new THREE.MeshStandardMaterial({ color: 0xff9f43, roughness: 0.5 });
@@ -595,6 +706,8 @@ const matPupil = new THREE.MeshStandardMaterial({ color: 0xffffff });
 
 let chickenParts = {};
 let chickenAccessory = null;
+let chickenTarget = new THREE.Vector3(0,0,0);
+let chickenWalking = false;
 
 function buildChicken(){
   while(chicken.children.length) chicken.remove(chicken.children[0]);
@@ -687,17 +800,10 @@ function buildChicken(){
     }
   }
 
-  // Accessories
   if(state.equippedHat){
-    const hatItem = SHOP_ITEMS.find(i=>i.id===state.equippedHat);
-    if(hatItem){
-      const hatGeo = new THREE.ConeGeometry(0.35, 0.5, 16);
-      const hatMat = new THREE.MeshStandardMaterial({ color: 0xffd700, roughness: 0.3, metalness: 0.5 });
-      const hat = new THREE.Mesh(hatGeo, hatMat);
-      hat.position.set(0, 2.8*s, 0.3*s);
-      chicken.add(hat);
-      chickenParts.hat = hat;
-    }
+    const hat = new THREE.Mesh(new THREE.ConeGeometry(0.35, 0.5, 16), new THREE.MeshStandardMaterial({ color: 0xffd700, roughness: 0.3, metalness: 0.5 }));
+    hat.position.set(0, 2.8*s, 0.3*s);
+    chicken.add(hat);
   }
   if(state.equippedAcc){
     const acc = new THREE.Mesh(new THREE.TorusGeometry(0.15, 0.05, 8, 16), new THREE.MeshStandardMaterial({color:0xff69b4}));
@@ -731,91 +837,108 @@ function updateDirt(){
 }
 
 // ---------- Weather & Time ----------
-let weather = "sunny"; // sunny, cloudy, rainy
-let timeOfDay = 0.3; // 0-1 (0=midnight, 0.25=dawn, 0.5=noon, 0.75=dusk)
+let weather = "sunny";
+let timeOfDay = 0.3;
 let weatherTimer = 0;
 let timeTimer = 0;
+let survivalTimer = 0;
 
 function updateTimeOfDay(dt){
   timeTimer += dt;
-  if(timeTimer > 0.5){ // speed up time
+  if(timeTimer > 0.3){
     timeTimer = 0;
-    timeOfDay = (timeOfDay + 0.001) % 1;
+    timeOfDay = (timeOfDay + 0.0005) % 1;
   }
-  // Sun position
   const angle = timeOfDay * Math.PI * 2 - Math.PI/2;
   sun.position.set(Math.cos(angle)*12, Math.sin(angle)*12 + 2, 4);
-  sun.intensity = Math.max(0.2, Math.sin(angle)*1.3);
+  sun.intensity = Math.max(0.15, Math.sin(angle)*1.4);
   skyMat.uniforms.sunIntensity.value = Math.max(0.3, Math.sin(angle)*1.0);
   
-  // Sky colors
   let topColor, bottomColor;
-  if(timeOfDay < 0.2 || timeOfDay > 0.8){ // night
-    topColor = new THREE.Color(0x0a1030);
-    bottomColor = new THREE.Color(0x1a2050);
+  if(timeOfDay < 0.2 || timeOfDay > 0.8){
+    topColor = new THREE.Color(0x0a1030); bottomColor = new THREE.Color(0x1a2050);
     sun.intensity = 0.1;
-  } else if(timeOfDay < 0.3){ // dawn
-    topColor = new THREE.Color(0xff8c60);
-    bottomColor = new THREE.Color(0xffd4a0);
-  } else if(timeOfDay < 0.7){ // day
-    topColor = new THREE.Color(0x5aa9ff);
-    bottomColor = new THREE.Color(0xcfe8ff);
-  } else { // dusk
-    topColor = new THREE.Color(0xff6b35);
-    bottomColor = new THREE.Color(0xffa07a);
+  } else if(timeOfDay < 0.3){
+    topColor = new THREE.Color(0xff8c60); bottomColor = new THREE.Color(0xffd4a0);
+  } else if(timeOfDay < 0.7){
+    topColor = new THREE.Color(0x5aa9ff); bottomColor = new THREE.Color(0xcfe8ff);
+  } else {
+    topColor = new THREE.Color(0xff6b35); bottomColor = new THREE.Color(0xffa07a);
   }
   skyMat.uniforms.topColor.value = topColor;
   skyMat.uniforms.bottomColor.value = bottomColor;
   scene.background = topColor;
   scene.fog.color = bottomColor;
   
-  // Update UI time
   const hours = Math.floor(timeOfDay*24);
   const mins = Math.floor((timeOfDay*24-hours)*60);
   const ampm = hours >= 12 ? "PM" : "AM";
   const h12 = hours % 12 || 12;
-  document.getElementById("timeDisplay").textContent = `${h12}:${mins.toString().padStart(2,"0")} ${ampm}`;
+  const timeEl = document.getElementById("timeDisplay");
+  if(timeEl) timeEl.textContent = `${h12}:${mins.toString().padStart(2,"0")} ${ampm}`;
   
-  // Night care tracking
-  if((timeOfDay < 0.2 || timeOfDay > 0.8) && state.lastCareAction && (Date.now()-state.lastCareAction < 60000)){
-    state.nightCare = (state.nightCare||0) + 0.01;
+  // Day care tracking
+  if(timeOfDay > 0.25 && timeOfDay < 0.75){
+    state.dayCare = (state.dayCare||0) + dt/60;
+  }
+  
+  // Survival time tracking
+  if(state.hunger>50 && state.happy>50 && state.energy>50 && state.clean>50){
+    survivalTimer += dt;
+    state.survivalTime = Math.max(state.survivalTime||0, survivalTimer);
+  } else {
+    survivalTimer = 0;
   }
 }
 
 function updateWeather(dt){
   weatherTimer += dt;
-  if(weatherTimer > 30){ // change weather every 30s
+  if(weatherTimer > 45){
     weatherTimer = 0;
     const r = Math.random();
-    if(r < 0.5) weather = "sunny";
-    else if(r < 0.8) weather = "cloudy";
-    else weather = "rainy";
+    if(r < 0.45) weather = "sunny";
+    else if(r < 0.75) weather = "cloudy";
+    else if(r < 0.9) weather = "rainy";
+    else weather = "snowy";
+    
+    rainGroup.visible = (weather === "rainy");
+    snowGroup.visible = (weather === "snowy");
     
     if(weather === "rainy"){
-      rainGroup.visible = true;
       state.rainSeen = (state.rainSeen||0) + 1;
       checkAchievements();
       toast("It's raining! 🌧️", "🌧️");
-    } else {
-      rainGroup.visible = false;
+    } else if(weather === "snowy"){
+      toast("Snow! ❄️", "❄️");
+    } else if(weather === "sunny"){
+      toast("Sunny day! ☀️", "☀️");
     }
     
-    // Cloud opacity
     clouds.forEach(c => {
       c.children.forEach(b => {
-        b.material.opacity = weather === "cloudy" ? 0.95 : weather === "rainy" ? 0.98 : 0.85;
+        b.material.opacity = weather === "cloudy" ? 0.95 : weather === "rainy" ? 0.98 : weather === "snowy" ? 0.9 : 0.85;
       });
     });
   }
   
-  // Animate rain
   if(rainGroup.visible){
     rainDrops.forEach(drop => {
-      drop.position.y -= 15*dt;
+      drop.position.y -= 18*dt;
       if(drop.position.y < 0){
-        drop.position.y = 15;
-        drop.position.x = (Math.random()-0.5)*20;
-        drop.position.z = (Math.random()-0.5)*20;
+        drop.position.y = 20;
+        drop.position.x = (Math.random()-0.5)*25;
+        drop.position.z = (Math.random()-0.5)*25;
+      }
+    });
+  }
+  if(snowGroup.visible){
+    snowFlakes.forEach(flake => {
+      flake.position.y -= 3*dt;
+      flake.position.x += Math.sin(flake.position.y*0.5)*0.3*dt;
+      if(flake.position.y < 0){
+        flake.position.y = 20;
+        flake.position.x = (Math.random()-0.5)*25;
+        flake.position.z = (Math.random()-0.5)*25;
       }
     });
   }
@@ -823,13 +946,13 @@ function updateWeather(dt){
 
 // ---------- Particles ----------
 const particles = [];
-function spawnParticles(pos, color, count=12, speed=1.5, size=0.08){
+function spawnParticles(pos, color, count=12, speed=1.5, size=0.08, gravity=2){
   for(let i=0;i<count;i++){
     const m = new THREE.Mesh(new THREE.SphereGeometry(size,8,8), new THREE.MeshBasicMaterial({color, transparent:true}));
     m.position.copy(pos);
     const v = new THREE.Vector3((Math.random()-0.5)*speed, Math.random()*speed+0.5, (Math.random()-0.5)*speed);
     scene.add(m);
-    particles.push({mesh:m, vel:v, life:1.0, maxLife:1.0});
+    particles.push({mesh:m, vel:v, life:1.0, maxLife:1.0, gravity});
   }
 }
 function updateParticles(dt){
@@ -837,16 +960,21 @@ function updateParticles(dt){
     const p = particles[i];
     p.life -= dt*1.2;
     p.mesh.position.addScaledVector(p.vel, dt);
-    p.vel.y -= 2*dt;
+    p.vel.y -= p.gravity*dt;
     p.mesh.material.opacity = Math.max(0, p.life);
     p.mesh.scale.setScalar(0.5 + (1-p.life)*0.8);
     if(p.life <= 0){ scene.remove(p.mesh); particles.splice(i,1); }
   }
 }
 
-// ---------- Audio ----------
+// ---------- Audio & Music ----------
 let audioCtx = null;
-function ensureAudio(){ if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }
+let musicGain = null;
+let musicPlaying = false;
+let musicNodes = [];
+
+function ensureAudio(){ if(!audioCtx){ audioCtx = new (window.AudioContext||window.webkitAudioContext)(); musicGain = audioCtx.createGain(); musicGain.gain.value = state.settings?.musicVol || 0.3; musicGain.connect(audioCtx.destination); } }
+
 function playTone(freq, dur=0.15, type="sine", vol=0.15){
   if(!state.sound) return;
   try{
@@ -854,12 +982,13 @@ function playTone(freq, dur=0.15, type="sine", vol=0.15){
     const o = audioCtx.createOscillator();
     const g = audioCtx.createGain();
     o.type = type; o.frequency.value = freq;
-    g.gain.setValueAtTime(vol, audioCtx.currentTime);
+    g.gain.setValueAtTime(vol*(state.settings?.sfxVol||0.5), audioCtx.currentTime);
     g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+dur);
     o.connect(g); g.connect(audioCtx.destination);
     o.start(); o.stop(audioCtx.currentTime+dur);
   } catch(e){}
 }
+
 function playChirp(){ playTone(880,0.1,"square",0.12); setTimeout(()=>playTone(1100,0.1,"square",0.12),80); }
 function playEat(){ playTone(440,0.1,"sawtooth",0.1); setTimeout(()=>playTone(550,0.1,"sawtooth",0.1),100); }
 function playHappy(){ playTone(660,0.12,"sine",0.15); setTimeout(()=>playTone(880,0.12,"sine",0.15),120); setTimeout(()=>playTone(1100,0.18,"sine",0.15),240); }
@@ -867,6 +996,33 @@ function playSplash(){ playTone(300,0.2,"triangle",0.12); }
 function playSleep(){ playTone(220,0.3,"sine",0.1); }
 function playLevel(){ playTone(523,0.12,"sine",0.15); setTimeout(()=>playTone(659,0.12,"sine",0.15),120); setTimeout(()=>playTone(784,0.12,"sine",0.15),240); setTimeout(()=>playTone(1047,0.25,"sine",0.18),360); }
 function playAchievement(){ playTone(523,0.1,"sine",0.15); setTimeout(()=>playTone(659,0.1,"sine",0.15),100); setTimeout(()=>playTone(784,0.1,"sine",0.15),200); setTimeout(()=>playTone(1047,0.2,"sine",0.18),300); }
+function playCoin(){ playTone(988,0.08,"sine",0.12); setTimeout(()=>playTone(1319,0.12,"sine",0.12),80); }
+function playError(){ playTone(200,0.2,"sawtooth",0.1); }
+
+// Background music (procedural ambient)
+let musicInterval = null;
+function startMusic(){
+  if(!state.music || musicPlaying) return;
+  ensureAudio();
+  musicPlaying = true;
+  const notes = [261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25];
+  let noteIdx = 0;
+  musicInterval = setInterval(() => {
+    if(!state.music){ stopMusic(); return; }
+    const freq = notes[Math.floor(Math.random()*notes.length)];
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    o.type = "sine"; o.frequency.value = freq;
+    g.gain.setValueAtTime((state.settings?.musicVol||0.3)*0.15, audioCtx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime+1.5);
+    o.connect(g); g.connect(musicGain);
+    o.start(); o.stop(audioCtx.currentTime+1.5);
+  }, 2000);
+}
+function stopMusic(){
+  musicPlaying = false;
+  if(musicInterval){ clearInterval(musicInterval); musicInterval=null; }
+}
 
 // ---------- UI helpers ----------
 function clamp(v){ return Math.max(0, Math.min(100, v)); }
@@ -875,7 +1031,7 @@ function toast(msg, icon="✨"){
   t.querySelector(".toast-icon").textContent = icon;
   document.getElementById("toastMsg").textContent = msg;
   t.classList.add("show");
-  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),1800);
+  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),2000);
 }
 
 function load(){
@@ -887,22 +1043,33 @@ function load(){
       state.lastTick = Date.now();
       if(!state.unlockedAch) state.unlockedAch = [];
       if(!state.inventory) state.inventory = [];
+      if(!state.quests) state.quests = [];
+      if(!state.questProgress) state.questProgress = {};
+      if(!state.completedQuests) state.completedQuests = [];
+      if(!state.settings) state.settings = { quality: "high", musicVol: 0.3, sfxVol: 0.5 };
     } else { 
       document.getElementById("nameOverlay").classList.add("show"); 
     }
   } catch(e){ document.getElementById("nameOverlay").classList.add("show"); }
 }
+
 function save(){ try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch(e){} }
 
 function updateUI(){
-  document.getElementById("stageText").textContent = STAGES[state.stage] + " • " + state.name;
-  document.getElementById("level").textContent = state.level;
-  document.getElementById("coins").textContent = state.coins;
-  document.getElementById("xp").textContent = Math.floor(state.xp);
-  document.getElementById("xpMax").textContent = state.xpMax;
+  const st = document.getElementById("stageText");
+  if(st) st.textContent = STAGES[state.stage] + " • " + state.name;
+  const set = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+  set("level", state.level);
+  set("coins", state.coins);
+  set("xp", Math.floor(state.xp));
+  set("xpMax", state.xpMax);
+  const ach = document.getElementById("achCount");
+  if(ach) ach.textContent = state.unlockedAch.length + "/" + ACHIEVEMENTS.length;
   const setBar = (cls,val,id) => {
-    document.querySelector("."+cls+" .bar > div").style.width = val+"%";
-    document.getElementById(id).textContent = Math.round(val);
+    const el = document.querySelector("."+cls+" .bar > div");
+    if(el) el.style.width = val+"%";
+    const v = document.getElementById(id);
+    if(v) v.textContent = Math.round(val);
   };
   setBar("hunger", state.hunger, "hungerV");
   setBar("happy", state.happy, "happyV");
@@ -911,6 +1078,8 @@ function updateUI(){
   buildChicken();
   updateDirt();
   updateAchievements();
+  updateQuests();
+  updateInventory();
 }
 
 function addXP(n){
@@ -921,9 +1090,10 @@ function addXP(n){
     state.xpMax = Math.round(state.xpMax * 1.25);
     toast("Level up! Lv "+state.level, "🎉");
     playLevel();
-    spawnParticles(new THREE.Vector3(0,2.5,0), 0xffd700, 24, 2.5);
+    spawnParticles(new THREE.Vector3(0,2.5,0), 0xffd700, 30, 3);
     maybeEvolve();
     checkAchievements();
+    refreshQuests();
   }
   save();
 }
@@ -936,7 +1106,7 @@ function maybeEvolve(){
     state.stage = newStage;
     toast("Evolved into a " + STAGES[state.stage] + "!", "🌟");
     playHappy();
-    spawnParticles(new THREE.Vector3(0,2,0), 0xff69b4, 30, 3);
+    spawnParticles(new THREE.Vector3(0,2,0), 0xff69b4, 40, 4);
     buildChicken();
     checkAchievements();
   }
@@ -950,7 +1120,7 @@ function checkAchievements(){
       newAch = true;
       toast("Achievement: " + ach.name + "!", ach.icon);
       playAchievement();
-      spawnParticles(new THREE.Vector3(0,3,0), 0xffd700, 20, 3);
+      spawnParticles(new THREE.Vector3(0,3,0), 0xffd700, 25, 3.5);
     }
   });
   if(newAch) save();
@@ -969,7 +1139,7 @@ function careAction(type){
       state.feedCount = (state.feedCount||0) + 1;
       gained = 5;
       playEat();
-      spawnParticles(pos, 0x8bc34a, 8, 1.2);
+      spawnParticles(pos, 0x8bc34a, 10, 1.5);
       break;
     case "play":
       if(state.energy < 15){ toast("Too tired to play.", "😴"); return; }
@@ -979,15 +1149,16 @@ function careAction(type){
       state.playCount = (state.playCount||0) + 1;
       gained = 8;
       playHappy();
-      spawnParticles(pos, 0xffeb3b, 12, 2);
+      spawnParticles(pos, 0xffeb3b, 15, 2.5);
       startMini();
       break;
     case "rest":
       state.energy = clamp(state.energy + 35);
       state.hunger = clamp(state.hunger - 5);
+      state.restCount = (state.restCount||0) + 1;
       gained = 4;
       playSleep();
-      spawnParticles(new THREE.Vector3(0,1.5,0), 0x90caf9, 6, 0.8);
+      spawnParticles(new THREE.Vector3(0,1.5,0), 0x90caf9, 8, 1);
       break;
     case "clean":
       state.clean = clamp(state.clean + 40);
@@ -995,20 +1166,21 @@ function careAction(type){
       state.cleanCount = (state.cleanCount||0) + 1;
       gained = 5;
       playSplash();
-      spawnParticles(pos, 0x4fc3f7, 16, 2);
+      spawnParticles(pos, 0x4fc3f7, 20, 2.5);
       break;
     case "pet":
       state.happy = clamp(state.happy + 8);
       state.petCount = (state.petCount||0) + 1;
       gained = 3;
       playChirp();
-      spawnParticles(pos, 0xff69b4, 10, 1.5);
+      spawnParticles(pos, 0xff69b4, 12, 2);
       break;
   }
   if(type !== "play"){ addXP(gained); toast(["Yum! 🍖","Fun! 🎮","Zzz... 💤","Sparkly! 🛁","❤️ Loved!"][["feed","play","rest","clean","pet"].indexOf(type)], ""); }
   else { toast("Let's play! 🎮", ""); }
   updateUI();
   checkAchievements();
+  updateQuestProgress();
   save();
 }
 
@@ -1026,35 +1198,26 @@ function tick(){
   if(state.hunger<10 || state.clean<10 || state.happy<10){
     state.xp = Math.max(0, state.xp - 0.5*m);
   }
-  // Weather affects stats
   if(weather === "rainy"){
     state.happy = clamp(state.happy - 0.5*m);
     state.clean = clamp(state.clean - 1.5*m);
   } else if(weather === "sunny"){
     state.happy = clamp(state.happy + 0.3*m);
     state.energy = clamp(state.energy + 0.2*m);
+  } else if(weather === "snowy"){
+    state.energy = clamp(state.energy - 0.3*m);
   }
   updateUI();
 }
 
-// ---------- Mini game ----------
-let miniRunning = false;
-let miniAnim = null;
-let seeds = [];
-let basketX = 160;
-let miniScore = 0;
-let miniTime = 30;
-let miniLast = 0;
-let spawnTimer = 0;
-let miniGameType = "catch"; // catch or memory
+// ---------- Mini Games ----------
+let miniRunning = false, miniAnim = null, miniScore = 0, miniTime = 30, miniLast = 0;
+let seeds = [], basketX = 160, spawnTimer = 0, miniGameType = "catch";
+let memoryCards = [], memoryFirst = null, memorySecond = null, memoryLock = false, memoryMatches = 0, memoryTime = 45;
 
 function startMini(){
-  // Random mini-game
-  if(Math.random() > 0.5){
-    startCatchGame();
-  } else {
-    startMemoryGame();
-  }
+  if(Math.random() > 0.5) startCatchGame();
+  else startMemoryGame();
 }
 
 function startCatchGame(){
@@ -1069,11 +1232,11 @@ function startCatchGame(){
     miniTime -= dt;
     if(miniTime <= 0){ endMini(); return; }
     spawnTimer += dt;
-    if(spawnTimer > 0.55){ spawnTimer=0; seeds.push({x: Math.random()*280+20, y:-10, speed: 90+Math.random()*70, good: Math.random()>0.18}); }
+    if(spawnTimer > 0.5){ spawnTimer=0; seeds.push({x: Math.random()*280+20, y:-10, speed: 90+Math.random()*80, good: Math.random()>0.15}); }
     seeds.forEach(s=> s.y += s.speed*dt);
     seeds = seeds.filter(s=>{
       if(s.y > 440){
-        if(Math.abs(s.x - basketX) < 36){
+        if(Math.abs(s.x - basketX) < 38){
           if(s.good){ miniScore += 10; } else { miniScore = Math.max(0, miniScore-5); }
         }
         return false;
@@ -1084,9 +1247,9 @@ function startCatchGame(){
     grd.addColorStop(0,"#87ceeb"); grd.addColorStop(1,"#b8e994");
     gctx.fillStyle = grd; gctx.fillRect(0,0,c.width,c.height);
     gctx.fillStyle = "#7ec850"; gctx.fillRect(0,440,c.width,40);
-    gctx.fillStyle = "#8b5a2b"; gctx.fillRect(basketX-34,442,68,24);
-    gctx.fillStyle = "#5d3a1a"; gctx.fillRect(basketX-34,442,68,6);
-    gctx.fillStyle = "#a0522d"; gctx.fillRect(basketX-28,448,56,4);
+    gctx.fillStyle = "#8b5a2b"; gctx.fillRect(basketX-36,440,72,26);
+    gctx.fillStyle = "#5d3a1a"; gctx.fillRect(basketX-36,440,72,6);
+    gctx.fillStyle = "#a0522d"; gctx.fillRect(basketX-30,448,60,4);
     gctx.font = "26px serif";
     seeds.forEach(s=> gctx.fillText(s.good ? "🌱" : "💣", s.x-13, s.y));
     gctx.fillStyle = "#1a1a1a"; gctx.font = "bold 20px sans-serif";
@@ -1100,7 +1263,7 @@ function startCatchGame(){
   const move = (e) => {
     const rect = c.getBoundingClientRect();
     const x = (e.touches? e.touches[0].clientX : e.clientX) - rect.left;
-    basketX = Math.max(34, Math.min(c.width-34, x));
+    basketX = Math.max(36, Math.min(c.width-36, x));
   };
   c.onmousemove = move; c.ontouchmove = (e)=>{ e.preventDefault(); move(e); };
 }
@@ -1113,99 +1276,77 @@ function startMemoryGame(){
   const emojis = ["🐔","🥚","🌽","🌾","🌻","🍎","🥕","🍇"];
   const cards = [];
   for(let i=0;i<8;i++){ cards.push(emojis[i], emojis[i]); }
-  // shuffle
   for(let i=cards.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [cards[i],cards[j]]=[cards[j],cards[i]]; }
-  const grid = [];
+  memoryCards = [];
   for(let r=0;r<4;r++){
     for(let col=0;col<4;col++){
-      grid.push({emoji: cards[r*4+col], revealed: false, matched: false, x: col*75+10, y: r*75+80});
+      memoryCards.push({emoji: cards[r*4+col], revealed: false, matched: false, x: col*75+10, y: r*75+80});
     }
   }
-  let firstCard = null, secondCard = null, lockBoard = false, matches = 0, memoryTime = 45;
-  miniRunning = true; miniLast = performance.now();
-  miniGameType = "memory";
+  memoryFirst = null; memorySecond = null; memoryLock = false; memoryMatches = 0; memoryTime = 45;
+  miniRunning = true; miniLast = performance.now(); miniGameType = "memory";
+  
+  c.onclick = (e) => {
+    if(memoryLock) return;
+    const rect = c.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const card = memoryCards.find(cd => x >= cd.x && x <= cd.x+65 && y >= cd.y && y <= cd.y+65);
+    if(!card || card.revealed || card.matched) return;
+    card.revealed = true;
+    if(!memoryFirst){ memoryFirst = card; }
+    else {
+      memorySecond = card;
+      memoryLock = true;
+      setTimeout(() => {
+        if(memoryFirst.emoji === memorySecond.emoji){
+          memoryFirst.matched = true;
+          memorySecond.matched = true;
+          memoryMatches++;
+          playHappy();
+          spawnParticles(new THREE.Vector3(0,2,0.5), 0x51cf66, 8, 1.5);
+        } else {
+          memoryFirst.revealed = false;
+          memorySecond.revealed = false;
+          playTone(200,0.1,"sawtooth",0.1);
+        }
+        memoryFirst = null; memorySecond = null; memoryLock = false;
+      }, 600);
+    }
+  };
   
   function frame(now){
     if(!miniRunning) return;
     const dt = (now-miniLast)/1000; miniLast=now;
     memoryTime -= dt;
-    if(memoryTime <= 0 || matches >= 8){ 
-      endMemoryGame(matches, memoryTime); 
-      return; 
-    }
+    if(memoryTime <= 0 || memoryMatches >= 8){ endMini(); return; }
     
     gctx.fillStyle = "#87ceeb"; gctx.fillRect(0,0,c.width,c.height);
     gctx.fillStyle = "#fff"; gctx.fillRect(5,5,c.width-10,c.height-10);
     gctx.fillStyle = "#1a1a1a"; gctx.font = "bold 18px sans-serif";
-    gctx.fillText("Matches: "+matches+"/8", 12, 26);
+    gctx.fillText("Matches: "+memoryMatches+"/8", 12, 26);
     gctx.fillText("Time: "+Math.ceil(memoryTime), 12, 50);
+    gctx.fillStyle = "rgba(0,0,0,0.15)"; gctx.fillRect(12,56,c.width-24,6);
+    gctx.fillStyle = "#ff9f43"; gctx.fillRect(12,56,(c.width-24)*(memoryTime/45),6);
     
-    grid.forEach(card => {
-      if(card.matched){
-        gctx.fillStyle = "#b8e994";
-      } else if(card.revealed){
-        gctx.fillStyle = "#fff3cd";
-      } else {
-        gctx.fillStyle = "#d0d0d0";
-      }
+    memoryCards.forEach(card => {
+      if(card.matched) gctx.fillStyle = "#b8e994";
+      else if(card.revealed) gctx.fillStyle = "#fff3cd";
+      else gctx.fillStyle = "#d0d0d0";
       gctx.fillRect(card.x, card.y, 65, 65);
-      gctx.strokeStyle = "#999";
+      gctx.strokeStyle = "#999"; gctx.lineWidth=2;
       gctx.strokeRect(card.x, card.y, 65, 65);
       if(card.revealed || card.matched){
         gctx.font = "32px serif";
-        gctx.fillText(card.emoji, card.x+18, card.y+45);
+        gctx.fillText(card.emoji, card.x+16, card.y+46);
       } else {
-        gctx.font = "24px serif";
-        gctx.fillStyle = "#888";
-        gctx.fillText("?", card.x+25, card.y+42);
+        gctx.font = "28px serif"; gctx.fillStyle = "#888";
+        gctx.fillText("?", card.x+24, card.y+44);
       }
     });
-    
     miniAnim = requestAnimationFrame(frame);
   }
-  
-  c.onclick = (e) => {
-    if(lockBoard) return;
-    const rect = c.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const card = grid.find(cd => x >= cd.x && x <= cd.x+65 && y >= cd.y && y <= cd.y+65);
-    if(!card || card.revealed || card.matched) return;
-    
-    card.revealed = true;
-    if(!firstCard){ firstCard = card; }
-    else {
-      secondCard = card;
-      lockBoard = true;
-      setTimeout(() => {
-        if(firstCard.emoji === secondCard.emoji){
-          firstCard.matched = true;
-          secondCard.matched = true;
-          matches++;
-          playHappy();
-        } else {
-          firstCard.revealed = false;
-          secondCard.revealed = false;
-          playTone(200,0.1,"sawtooth",0.1);
-        }
-        firstCard = null; secondCard = null; lockBoard = false;
-      }, 600);
-    }
-  };
-  
   miniAnim = requestAnimationFrame(frame);
-}
-
-function endMemoryGame(matches, timeLeft){
-  miniRunning = false; if(miniAnim) cancelAnimationFrame(miniAnim);
-  const score = matches * 15 + Math.floor(timeLeft);
-  const reward = Math.floor(score/15);
-  state.coins += reward;
-  addXP(reward*2);
-  if(score > (state.highScore||0)){ state.highScore = score; toast("New high score! 🏆", "🏆"); }
-  toast("Memory game done! Score: "+score+" +"+reward+" coins", "🎮");
-  document.getElementById("gameArea").classList.remove("show");
-  updateUI(); save();
 }
 
 function endMini(){
@@ -1215,7 +1356,17 @@ function endMini(){
     state.coins += reward;
     addXP(reward*2);
     if(miniScore > (state.highScore||0)){ state.highScore = miniScore; toast("New high score! 🏆", "🏆"); }
-    toast("Mini game done! +"+reward+" coins, +"+(reward*2)+" XP", "🎮");
+    toast("Catch game done! +"+reward+" coins", "🎮");
+    document.getElementById("gameArea").classList.remove("show");
+    updateUI(); save();
+  } else if(miniGameType === "memory"){
+    miniRunning=false; if(miniAnim) cancelAnimationFrame(miniAnim);
+    const score = memoryMatches * 15 + Math.floor(memoryTime);
+    const reward = Math.floor(score/15);
+    state.coins += reward;
+    addXP(reward*2);
+    if(score > (state.highScore||0)){ state.highScore = score; toast("New high score! 🏆", "🏆"); }
+    toast("Memory game done! Score: "+score+" +"+reward+" coins", "🎮");
     document.getElementById("gameArea").classList.remove("show");
     updateUI(); save();
   }
@@ -1224,24 +1375,21 @@ function endMini(){
 document.getElementById("btnCloseGame").onclick = ()=>{ miniRunning=false; if(miniAnim) cancelAnimationFrame(miniAnim); document.getElementById("gameArea").classList.remove("show"); };
 
 // ---------- Shop ----------
-function openShop(){
-  document.getElementById("shopOverlay").classList.add("show");
-  renderShop();
-}
 let shopFilter = "all";
 function filterShop(cat){
   shopFilter = cat;
   document.querySelectorAll(".shop-tab").forEach(t=>t.classList.remove("active"));
-  event.target.classList.add("active");
+  if(event && event.target) event.target.classList.add("active");
   renderShop();
 }
-function closeShop(){
-  document.getElementById("shopOverlay").classList.remove("show");
-}
+function openShop(){ document.getElementById("shopOverlay").classList.add("show"); renderShop(); }
+function closeShop(){ document.getElementById("shopOverlay").classList.remove("show"); }
+
 function renderShop(){
   const container = document.getElementById("shopItems");
+  if(!container) return;
   container.innerHTML = "";
-  SHOP_ITEMS.filter(item => shopFilter==="all" || item.type===shopFilter || (shopFilter==="hat"&&item.type==="hat") || (shopFilter==="acc"&&item.type==="acc")).forEach(item => {
+  SHOP_ITEMS.filter(item => shopFilter==="all" || item.type===shopFilter).forEach(item => {
     const owned = state.inventory.includes(item.id);
     const locked = item.unlockLevel && state.level < item.unlockLevel;
     const canAfford = state.coins >= item.price;
@@ -1252,33 +1400,38 @@ function renderShop(){
       <div class="shop-name">${item.name}</div>
       <div class="shop-price">${owned ? "Owned" : locked ? "Lv "+item.unlockLevel : "🪙 "+item.price}</div>
       <button class="shop-btn" ${owned||locked||!canAfford?"disabled":""} onclick="buyItem('${item.id}')">
-        ${owned ? "✓" : locked ? "🔒" : canAfford ? "Buy" : "Need coins"}
+        ${owned ? "✓ Owned" : locked ? "🔒 Lv"+item.unlockLevel : canAfford ? "Buy" : "Need coins"}
       </button>
+      ${owned && (item.type==="hat"||item.type==="acc"||item.type==="bg") ? `<button class="shop-btn" style="background:#51cf66;margin-top:2px;" onclick="equipItem('${item.id}')">Equip</button>` : ""}
     `;
     container.appendChild(div);
   });
 }
+
 function buyItem(id){
   const item = SHOP_ITEMS.find(i=>i.id===id);
-  if(!item || state.coins < item.price) return;
-  if(item.unlockLevel && state.level < item.unlockLevel) return;
+  if(!item || state.coins < item.price) { playError(); return; }
+  if(item.unlockLevel && state.level < item.unlockLevel) { playError(); return; }
   state.coins -= item.price;
   state.inventory.push(id);
-  // Apply item
+  state.shopBuys = (state.shopBuys||0) + 1;
   if(item.type === "hat") state.equippedHat = id;
   if(item.type === "acc") state.equippedAcc = id;
   if(item.type === "food" && item.boost){
     state.hunger = clamp(state.hunger + 25*item.boost);
-    toast("Yum! Premium feed! 🥗", "🥗");
+    toast("Yum! " + item.name + "! " + item.icon, item.icon);
   }
   if(item.type === "bg") state.theme = id;
-  toast("Bought " + item.name + "! " + item.icon, item.icon);
+  if(item.type === "toy") toast("New toy! " + item.name + " " + item.icon, item.icon);
+  if(item.type === "hat" || item.type === "acc") toast("Bought " + item.name + "! " + item.icon, item.icon);
   playHappy();
   buildChicken();
   updateUI();
   renderShop();
+  checkAchievements();
   save();
 }
+
 function equipItem(id){
   const item = SHOP_ITEMS.find(i=>i.id===id);
   if(!item || !state.inventory.includes(id)) return;
@@ -1291,7 +1444,7 @@ function equipItem(id){
   save();
 }
 
-// ---------- Achievements UI ----------
+// ---------- Achievements ----------
 function updateAchievements(){
   const list = document.getElementById("achList");
   if(!list) return;
@@ -1303,9 +1456,99 @@ function updateAchievements(){
     div.innerHTML = `<span class="ach-icon">${ach.icon}</span><div class="ach-info"><div class="ach-name">${ach.name}</div><div class="ach-desc">${ach.desc}</div></div>${unlocked?"<span class='ach-check'>✓</span>":""}`;
     list.appendChild(div);
   });
-  document.getElementById("achCount").textContent = state.unlockedAch.length + "/" + ACHIEVEMENTS.length;
-  const achCount2 = document.getElementById("achCount2");
-  if(achCount2) achCount2.textContent = state.unlockedAch.length + "/" + ACHIEVEMENTS.length;
+  const cnt = state.unlockedAch.length + "/" + ACHIEVEMENTS.length;
+  const el1 = document.getElementById("achCount");
+  if(el1) el1.textContent = cnt;
+  const el2 = document.getElementById("achCount2");
+  if(el2) el2.textContent = cnt;
+}
+
+// ---------- Quests ----------
+function refreshQuests(){
+  if(!state.quests || state.quests.length === 0 || Date.now() - (state.lastQuestRefresh||0) > 3600000){
+    state.quests = [];
+    const shuffled = [...QUESTS].sort(()=>Math.random()-0.5);
+    for(let i=0;i<3;i++){
+      state.quests.push({...shuffled[i], progress:0});
+    }
+    state.lastQuestRefresh = Date.now();
+    state.questProgress = {};
+  }
+}
+
+function updateQuestProgress(){
+  if(!state.quests) return;
+  state.quests.forEach(q => {
+    const current = state[q.stat] || 0;
+    const baseProgress = state.questProgress[q.id] || 0;
+    const newProgress = Math.min(q.target, current - baseProgress + (state.questProgress[q.id]||0));
+    if(!state.questProgress[q.id]) state.questProgress[q.id] = 0;
+    if(current > (state.questProgress[q.id]||0)){
+      state.questProgress[q.id] = current;
+    }
+  });
+}
+
+function updateQuests(){
+  const container = document.getElementById("questList");
+  if(!container) return;
+  container.innerHTML = "";
+  if(!state.quests || state.quests.length === 0) refreshQuests();
+  state.quests.forEach(q => {
+    const progress = Math.min(q.target, state.questProgress[q.id] || 0);
+    const completed = progress >= q.target;
+    if(completed && !state.completedQuests.includes(q.id)){
+      state.completedQuests.push(q.id);
+      state.coins += q.reward;
+      toast("Quest complete! +" + q.reward + " coins", q.icon);
+      playCoin();
+    }
+    const div = document.createElement("div");
+    div.className = "quest-item" + (completed?" completed":"");
+    div.innerHTML = `<span class="quest-icon">${q.icon}</span><div class="quest-info"><div class="quest-name">${q.name}</div><div class="quest-bar"><div style="width:${(progress/q.target*100)}%"></div></div><div class="quest-progress">${progress}/${q.target}</div></div>${completed?"<span class='quest-check'>✓</span>":""}`;
+    container.appendChild(div);
+  });
+}
+
+// ---------- Inventory ----------
+function updateInventory(){
+  const container = document.getElementById("invList");
+  if(!container) return;
+  container.innerHTML = "";
+  if(state.inventory.length === 0){
+    container.innerHTML = "<div style='text-align:center;color:var(--muted);font-size:12px;padding:10px;'>No items yet. Visit the shop!</div>";
+    return;
+  }
+  state.inventory.forEach(id => {
+    const item = SHOP_ITEMS.find(i=>i.id===id);
+    if(!item) return;
+    const div = document.createElement("div");
+    div.className = "inv-item";
+    div.innerHTML = `<span>${item.icon}</span><span>${item.name}</span>`;
+    if(item.type==="hat"||item.type==="acc"||item.type==="bg"){
+      div.onclick = () => equipItem(id);
+      div.style.cursor = "pointer";
+    }
+    container.appendChild(div);
+  });
+}
+
+// ---------- Settings ----------
+function openSettings(){
+  document.getElementById("settingsOverlay").classList.add("show");
+}
+function closeSettings(){
+  document.getElementById("settingsOverlay").classList.remove("show");
+}
+function updateSettings(){
+  state.settings.musicVol = parseFloat(document.getElementById("musicVol").value);
+  state.settings.sfxVol = parseFloat(document.getElementById("sfxVol").value);
+  state.sound = document.getElementById("soundToggle").checked;
+  state.music = document.getElementById("musicToggle").checked;
+  if(musicGain) musicGain.gain.value = state.settings.musicVol;
+  if(state.music) startMusic(); else stopMusic();
+  document.getElementById("btnSound").textContent = state.sound ? "🔊" : "🔇";
+  save();
 }
 
 // ---------- Controls ----------
@@ -1321,6 +1564,7 @@ document.getElementById("btnSound").onclick = ()=>{
   document.getElementById("btnSound").textContent = state.sound ? "🔊" : "🔇";
   save();
 };
+document.getElementById("btnSettings").onclick = ()=>openSettings();
 
 document.getElementById("btnStart").onclick = ()=>{
   const n = document.getElementById("nameInput").value.trim() || "Clucky";
@@ -1328,7 +1572,10 @@ document.getElementById("btnStart").onclick = ()=>{
   document.getElementById("nameOverlay").classList.remove("show");
   save(); updateUI();
   playChirp();
+  startMusic();
 };
+
+document.getElementById("btnCloseGame").onclick = ()=>{ miniRunning=false; if(miniAnim) cancelAnimationFrame(miniAnim); document.getElementById("gameArea").classList.remove("show"); };
 
 // ---------- Render loop ----------
 let lastFrame = performance.now();
@@ -1362,11 +1609,21 @@ function animate(now){
   }
   if(chickenParts.head) chickenParts.head.position.y = 2.15*s + Math.sin(bob*2)*0.03;
 
+  // Butterfly animation
+  butterflies.forEach(b => {
+    b.userData.phase += dt * b.userData.speed;
+    b.position.x += Math.sin(b.userData.phase)*0.3*dt;
+    b.position.z += Math.cos(b.userData.phase)*0.3*dt;
+    b.position.y = 1.5 + Math.sin(b.userData.phase*2)*0.5;
+    b.rotation.y = b.userData.phase;
+    b.children.forEach(w => { w.rotation.y = Math.sin(Date.now()*0.001*b.userData.wingSpeed)*0.6; });
+  });
+
   camera.position.x = Math.sin(bob*0.15)*2.2;
   camera.position.y = 4.5 + Math.sin(bob*0.1)*0.3;
   camera.lookAt(0, 1.3, 0);
 
-  clouds.forEach((c,i)=>{ c.position.x += dt*0.3; if(c.position.x>18) c.position.x=-18; });
+  clouds.forEach((c,i)=>{ c.position.x += dt*0.3; if(c.position.x>20) c.position.x=-20; });
 
   updateTimeOfDay(dt);
   updateWeather(dt);
@@ -1377,15 +1634,27 @@ requestAnimationFrame(animate);
 
 // ---------- Init ----------
 load();
+refreshQuests();
 if(!localStorage.getItem(SAVE_KEY)){ document.getElementById("nameOverlay").classList.add("show"); }
-else { document.getElementById("btnSound").textContent = state.sound ? "🔊" : "🔇"; }
+else { 
+  document.getElementById("btnSound").textContent = state.sound ? "🔊" : "🔇";
+  if(state.settings?.musicVol !== undefined){
+    document.getElementById("musicVol").value = state.settings.musicVol;
+    document.getElementById("sfxVol").value = state.settings.sfxVol;
+    document.getElementById("soundToggle").checked = state.sound;
+    document.getElementById("musicToggle").checked = state.music;
+  }
+}
 updateUI();
 setInterval(()=>{ tick(); save(); }, 30000);
 state.lastCareAction = Date.now();
+if(state.music) setTimeout(startMusic, 1000);
 
 </script>
 <script>
   window.addEventListener("load", ()=>{ setTimeout(()=>{ const l=document.getElementById("loading"); if(l){ l.classList.add("hidden"); setTimeout(()=>l.style.display="none",500); } }, 600); });
+  document.getElementById("btnQuests").onclick = ()=>{ document.getElementById("questOverlay").classList.add("show"); updateQuests(); };
+  document.getElementById("btnInv").onclick = ()=>{ document.getElementById("invOverlay").classList.add("show"); updateInventory(); };
 </script>
 </body>
 </html>
